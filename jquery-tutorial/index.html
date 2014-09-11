@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>jQuery Examples | Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../common-css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/navbar.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- JQuery testing elements -->
+    <style>
+       h2{
+          border-left: 0.3em double #428bca;
+          padding-left: 0.3em;
+          padding-bottom: 0.3em;
+          border-bottom: 0.1em solid #428bca;
+       }
+       
+       #panel,#flip{
+          padding:5px;
+          text-align:center;
+          background-color:#e5eecc;
+          border:solid 1px #c3c3c3;
+       }
+       #panel{
+          padding:50px;
+          display:none;
+       }
+     </style>
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Examples</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#jq-effects">Effects</a></li>
+              <li><a href="#jq-html">HTML</a></li>
+              <li><a href="#jq-traversing">Traversing</a></li>
+              <li><a href="#jq-ajax">AJAX</a></li>
+              <li><a href="#jq-misc">Misc</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">References <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_selectors.asp" class="menu_jquery_ref_selectors">jQuery Selectors</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_events.asp" class="menu_jquery_ref_events">jQuery Events</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_effects.asp" class="menu_jquery_ref_effects">jQuery Effects</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_html.asp" class="menu_jquery_ref_html">jQuery HTML/CSS</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_traversing.asp" class="menu_jquery_ref_traversing">jQuery Traversing</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_ajax.asp" class="menu_jquery_ref_ajax">jQuery AJAX</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_misc.asp" class="menu_jquery_ref_misc">jQuery Misc</a></li>
+                  <li><a target="_blank" href="http://www.w3schools.com/jquery/jquery_ref_prop.asp" class="menu_jquery_ref_prop">jQuery Properties</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="./">Default</a></li>
+              <li><a href="../navbar-static-top/">Static top</a></li>
+              <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h1>JQuery Examples</h1>
+        <p>These examples are quick exercises to illustrate how simple actions in jQuery work.</p>
+        <p>
+          <a class="btn btn-lg btn-primary" href="http://www.w3schools.com/jquery/default.asp" role="button">View jQuery Tutorial &raquo;</a>
+        </p>
+      </div> <!-- jumbotron -->
+
+      <div id="examples">
+        <!-- JQuery testing elements -->
+        <a name="jq-effects"></a>
+        <h2>jQuery Effects</h2>
+        
+        <h3>jQuery Animate</h3>
+        <p>Square dancing!</p>
+        <button id="a1">Animate 1</button>
+        <button id="a2">Animate 2</button>
+        <button id="a3">Animate 3</button>
+        <button id="a4">Animate 4</button>
+        <button id="a5">Animate 5</button>
+        <div id="animation" style="background-color:#000000; width:1em; height:1em; position:absolute; margin-top:0.5em;">&nbsp;</div>
+        
+        <h3>jQuery stop()</h3>
+        <p>Stop! Hammer time.</p>
+        <button id="stop" style="display:block;">Stop sliding</button>
+        <div id="flip">Click to slide down panel</div>
+        <div id="panel">Hello world!</div>
+        
+        <h3>jQuery Callback</h3>
+        <button id="a6">Animate 6</button>
+        <p id="p1" style="display:inline;">Call me, maybe.</p>
+        <br />
+        <button id="a7">Animate 7</button>
+        <p id="p2" style="display:inline;">Not gunna call me back?</p>
+        
+        <h3>jQuery Chaining</h3>
+        <p id="p3">Don't chain me, bro!</p>
+        
+        <a name="jq-html"></a>
+        <h2>jQuery HTML</h2>
+        
+        <h3>jQuery Get</h3>
+        <button id="d1">Text</button>
+        <button id="d2">HTML</button>
+        <p id="dom-test">DOM DOM DOM DOM <i>DOOOOOM</i></p>
+        
+        <button id="d3">Value</button>
+        <button id="d4">Just My Type</button>
+        Find Me: <input type="text" name="dom-in" id="dom-in">
+        
+        <h3>jQuery Set</h3>
+        <p>Set it and forget it!</p>
+        <button id="d5">Text</button>
+        <button id="d6">HTML</button>        
+        <button id="d7">Value</button>
+        
+        <h3>jQuery Add</h3>
+        
+        <a name="jq-traversing"></a>
+        <h2>jQuery Traversing</h2>
+        
+        <a name="jq-ajax"></a>
+        <h2>jQuery AJAX</h2>
+        
+        <a name="jq-misc"></a>
+        <h2>jQuery Misc</h2>
+      </div> <!-- examples -->
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="../common-js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../common-js/ie10-viewport-bug-workaround.js"></script>
+    <!-- JQuery testing -->
+    <script>
+    $(document).ready(function(){
+    	$("button#a1").click(function(){
+    	    // To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute
+    	    // By default, all HTML elements have a static position, and cannot be moved
+  			$("div#animation").animate({left:'250px'});
+		});
+		
+		// Manipulate more than one property
+		// Remember: all property names must be camel-cased when used with the animate() method: 	
+		// Example: you will need to write paddingLeft instead of padding-left
+        // Also, color animation is not included in jQuery, need a plug-in for that
+		$("button#a2").click(function(){
+           $("div#animation").animate({
+              left:'350px',
+              opacity:'0.5',
+              height:'150px',
+              width:'150px',
+              marginLeft:'3em',
+           });
+        });
+        
+        // Animate with relative values (relative to current position)
+        $("button#a3").click(function(){
+           $("div#animation").animate({
+              left:'250px',
+              height:'+=150px',
+              width:'+=150px'
+           });
+        });
+        
+        // Can animate by showing, hiding, or toggling an element
+        $("button#a4").click(function(){
+           $("div#animation").animate({
+              height:'toggle'
+           });
+        });
+        
+        // jQuery comes with queue functionality for animations
+        // If you write multiple animate() calls after each other, 
+        // then "internal" queue runs the animate calls ONE by ONE
+        $("button#a5").click(function(){
+           var div=$("div#animation");
+           div.animate({height:'300px',opacity:'0.4'},"slow");
+           div.animate({width:'300px',opacity:'0.8'},"slow");
+           div.animate({height:'100px',opacity:'0.4'},"slow");
+           div.animate({width:'100px',opacity:'0.8'},"slow");
+        });
+        
+        $("#flip").click(function(){
+           $("#panel").slideDown(5000);
+        });
+        $("#stop").click(function(){
+           $("#panel").stop();
+        });
+        
+        // Use callback functions to have effects executes one after the other
+        // With callback
+        $("button#a6").click(function(){
+           $("p#p1").hide("slow",function(){
+              alert("The paragraph #1 is now hidden");
+           });
+        });
+        // Without callback
+        $("button#a7").click(function(){
+           $("p#p2").hide(1000);
+           alert("The paragraph #2 is now hidden");
+        });
+        
+        // Chaining
+        // When chaining, the line of code could become quite long
+        // But, jQuery syntax lets you format it with line breaks and indentations
+        // jQuery throws away extra whitespace and executes the lines as one long line of code
+        $("p#p3").css("color","red")
+           .slideUp(2000)
+           .slideDown(2000);
+           
+        // DOM Manipulation
+        // HTML Get
+        $("button#d1").click(function(){
+           alert("Text: " + $("#dom-test").text());
+        });
+        $("button#d2").click(function(){
+           alert("HTML: " + $("#dom-test").html());
+        });
+        
+        $("button#d3").click(function(){
+           alert("Value: " + $("#dom-in").val());
+        });
+        $("button#d4").click(function(){
+           alert($("#dom-in").attr("type"));
+        });
+        
+        // HTML Set
+        $("button#d5").click(function(){
+           $("#dom-test").text("Hello world!");
+        });
+        $("button#d6").click(function(){
+           $("#dom-test").html("<b>Hello world!</b>");
+        });
+        $("button#d7").click(function(){
+           $("#dom-in").val("Dolly Duck");
+        });
+        
+        // Add elements
+	});
+	</script>
+  </body>
+</html>
